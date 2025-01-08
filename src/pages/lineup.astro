@@ -1,0 +1,16 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Container from '@components/container.astro';
+import Artists from '@components/artists/artists.astro';
+import Sectionhead from '@components/sectionhead.astro';
+---
+
+<Layout title='Artists'>
+  <Container>
+    <Sectionhead>
+      <Fragment slot='title'>Lineup</Fragment>
+      <Fragment slot='desc'>Some description goes here</Fragment>
+    </Sectionhead>
+    <Artists />
+  </Container>
+</Layout>

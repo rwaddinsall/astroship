@@ -1,16 +1,29 @@
 ---
 import Container from '@components/container.astro';
 import Cta from '@components/cta.astro';
-import Artists from '@components/artists.astro';
+import Artists from '@components/artists/artists.astro';
 import Hero from '@components/hero.astro';
-
 import Layout from '@layouts/Layout.astro';
+import SplashLayout from '@layouts/SplashLayout.astro';
+import Splash from '@components/splash.astro';
+import Indigenouswelcome from '@components/indigenouswelcome.astro';
 ---
 
-<Layout title=''>
+<Layout title='Title Placeholder'>
   <Container>
     <Hero />
     <Artists />
     <Cta />
   </Container>
 </Layout>
+<!-- <SplashLayout title='Title Placeholder'>
+  <Container>
+    <Hero />
+    <Cta
+      title='Something you want from visitors'
+      description='Sign up for ballot info etc '
+      text='Link'
+    />
+    <Indigenouswelcome />
+  </Container>
+</SplashLayout> -->

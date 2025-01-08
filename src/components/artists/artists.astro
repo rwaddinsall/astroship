@@ -1,0 +1,59 @@
+---
+// @ts-ignore
+import { Accordion, AccordionItem } from 'accessible-astro-components';
+
+const items = [
+  { title: 'Ayebatonye' },
+  { title: 'Barbara Boeing (BRA)' },
+  { title: 'Barney In The Tunnel' },
+  { title: 'Bumpy' },
+  { title: 'Claps X Middle Name Dance Band' },
+  { title: 'Dita (IDN)' },
+  { title: 'DJ Chrysalis' },
+  { title: 'DJ Shio' },
+  { title: 'Dreems' },
+  { title: 'Hannah D' },
+  { title: 'Idjut Boys' },
+  { title: 'Izy' },
+  { title: 'DJ JNETT' },
+  { title: 'John Gomez & Nick The Record (UK)' },
+  { title: 'Lord Echo (NZ)' },
+  { title: 'Mama Snake (DEN)' },
+  { title: 'Mitsuki (JAP)' },
+  { title: 'Montana' },
+  { title: 'Mount Liberation Unlimited (SWE)' },
+  { title: 'Nice Girl (NZ)' },
+  { title: 'Project 95' },
+  { title: 'Setwun' },
+];
+---
+
+<ul class='flex flex-col lg:flex-row lg:flex-wrap justify-center gap-3'>
+  {
+    items.map((item, index) => (
+      <li class='flex items-center p-1'>
+        <h3 class='font-semibold text-3xl  hover:text-slate-700  transition-colors duration-100'>
+          {item.title}
+        </h3>
+      </li>
+    ))
+  }
+</ul>
+<!-- <Accordion>
+  {
+    items.map((item, index) => (
+      <AccordionItem
+        name='artists'
+        key={index}
+        title={item.title}>
+        <div class='flex flex-col items-center'>
+          <img
+            src={item.image}
+            alt={item.title}
+            class='w-full h-auto rounded-lg shadow-md'
+          />
+        </div>
+      </AccordionItem>
+    ))
+  }
+</Accordion> -->
