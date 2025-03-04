@@ -1,0 +1,89 @@
+---
+import Faq from '@components/faq.astro';
+import Layout from '../layouts/Layout.astro';
+import Container from '@components/container.astro';
+import SectionHead from '@components/SectionHead.astro';
+import {
+  Tabs,
+  TabsList,
+  TabsPanel,
+  TabsTab,
+} from 'accessible-astro-components';
+---
+
+<!-- 
+Tabs
+
+A fully accessible tabs component that follows WAI-ARIA guidelines. Tabs are a great way to organize content into different sections, allowing users to switch between them easily.
+
+Some (accessibility) features of the Tabs:
+
+    Keyboard accessible using ArrowLeft and ArrowRight
+    Tabbing through the tabs using Tab and Shift + Tab
+    Linking the trigger element and the tabs using id, aria-controls and aria-labelledby
+    Using proper roles to inform screen reader users about the tabs and panels
+    Responsive design with mobile-first approach
+    Smooth transitions (respecting reduced-motion preferences)
+ -->
+<Layout title='Information'>
+  <Container>
+    <SectionHead>
+      <Fragment slot='title'>Information</Fragment>
+      <Fragment slot='desc'
+        >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia,
+        vitae!
+      </Fragment>
+    </SectionHead>
+
+    <Tabs>
+      <TabsList>
+        <TabsTab
+          id='tab1'
+          controls='panel1'>
+          FAQ</TabsTab
+        >
+
+        <TabsTab
+          id='tab2'
+          controls='panel2'
+          >Tickets</TabsTab
+        >
+        <TabsTab
+          id='tab3'
+          controls='panel3'
+          >Sustainability</TabsTab
+        >
+        <TabsTab
+          id='tab4'
+          controls='panel4'
+          >Some category</TabsTab
+        >
+      </TabsList>
+
+      <TabsPanel
+        id='panel1'
+        labelledby='tab1'>
+        <Faq /></TabsPanel
+      >
+
+      <TabsPanel
+        id='panel2'
+        labelledby='tab2'>
+        <h2>Panel 2</h2>
+        <p>Content for second panel</p>
+      </TabsPanel>
+      <TabsPanel
+        id='panel3'
+        labelledby='tab3'>
+        <h2>Panel 3</h2>
+        <p>Content for third panel</p>
+      </TabsPanel>
+      <TabsPanel
+        id='panel4'
+        labelledby='tab3'>
+        <h2>Panel 4</h2>
+        <p>Content for fourth panel</p>
+      </TabsPanel>
+    </Tabs>
+  </Container>
+</Layout>

@@ -1,57 +1,78 @@
----
-import { Picture } from 'astro:assets';
-// import heroImage from 'assets/hero.png';
-import Link from '@components/ui/link.astro';
-import { Icon } from 'astro-icon/components';
+<!-- ---
+import { Picture } from "astro:assets";
+import Sectionhead from "./SectionHead.astro";
+import Container from "./container.astro";
+
+import Link from "@components/ui/link.astro";
 ---
 
-<main
-  class='flex flex-col justify-center items-center min-h-screen pt-16 pb-8 md:pt-12 md:pb-24'>
-  <!-- <div class='py-6 md:order-1 hidden md:block'>
-    <Picture
-      src={
-      alt='Astronaut in the air'
-      widths={[200, 400, 600]}
-      sizes='(max-width: 800px) 100vw, 620px'
-      loading='eager'
-      format='avif'
-    />
-  </div> -->
-  <div class='text-center'>
-    <h1
-      class='text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter'>
-      Hopkins Creek
-    </h1>
-    <p class='text-lg mt-4 text-slate-600 max-w-xl'>
-      November 25th – 28th, 2022 Celebrating Music & Mateship
+<section class="h-screen flex flex-col items-center pt-24">
+  <Sectionhead>
+    <Fragment slot="title">Hopkins Creek</Fragment>
+    <Fragment slot="desc">November 20th - 23rd, 2025</Fragment>
+  </Sectionhead>
+</section>
+
+<section class="min-h-screen flex flex-col items-center justify-center px-4">
+  <div class="max-w-2xl w-full">
+    <p class="font-bold text-2xl text-center mt-8">
+      Hopkins Creek is a boutique music festival located in the heart of Victoria, Australia. We are committed to providing a safe and inclusive space for all attendees. Join us for a weekend of music, art, and community.
     </p>
-    <div
-      class='mt-6 flex flex-col sm:flex-row gap-3 justify-center items-center'>
-      <Link
-        href='#'
-        href='https://web3templates.com/templates/astroship-starter-website-template-for-astro'
-        target='_blank'
-        class='flex gap-1 items-center justify-center'
-        rel='noopener'>
-        <Icon
-          class='text-white w-5 h-5'
-          name='bx:bxs-cloud-download'
-        />
-        Ballot info
-      </Link>
-      <Link
-        size='lg'
-        style='outline'
-        rel='noopener'
-        href='https://github.com/surjithctly/astroship'
-        class='flex gap-1 items-center justify-center'
-        target='_blank'>
-        <Icon
-          class='text-black w-4 h-4'
-          name='bx:bxl-github'
-        />
-        Contact us
+    <div class="w-full mt-8">
+      <Link href="/subscribe" class="w-full" style="outline">
+        Subscribe to our mailing list
       </Link>
     </div>
   </div>
-</main>
+</section> -->
+
+---
+import { Picture } from "astro:assets";
+import Sectionhead from "./SectionHead.astro";
+import Container from "./container.astro";
+import Link from "@components/ui/link.astro";
+---
+
+<!-- Hero section - Primary introduction to Hopkins Creek Festival -->
+<section 
+  class="h-[95vh] flex flex-col items-center pt-24" 
+  aria-labelledby="hero-heading">
+  <Sectionhead>
+    <!-- Main festival title - provides primary heading for the page -->
+    <Fragment slot="title">Hopkins Creek</Fragment>
+    <!-- Festival dates - important information for visitors -->
+    <Fragment slot="desc">November 20th - 23rd, 2025</Fragment>
+  </Sectionhead>
+  
+  <!-- Visual indicator to encourage scrolling -->
+  <div class="mt-auto mb-8 animate-bounce" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>
+
+<!-- Festival description section - Provides more detailed information -->
+<section 
+  class="min-h-screen flex flex-col items-center justify-center px-4 py-12"
+  aria-labelledby="festival-description">
+  <div class="max-w-2xl w-full">
+    <!-- Festival description - explains what Hopkins Creek is about -->
+    <h2 id="festival-description" class="sr-only">About Hopkins Creek Festival</h2>
+    <p class="font-bold text-2xl text-center">
+      Hopkins Creek is a boutique music festival located in the heart of Victoria, Australia. We are committed to providing a safe and inclusive space for all attendees. Join us for a weekend of music, art, and community.
+    </p>
+    
+    <!-- Call to action - allows visitors to subscribe for updates -->
+    <div class="w-full mt-8" aria-describedby="subscription-hint">
+      <span id="subscription-hint" class="sr-only">Get the latest festival updates by email</span>
+      <Link 
+        href="/subscribe" 
+        class="w-full text-center"
+        style="outline"
+        aria-label="Subscribe to our mailing list for festival updates">
+        Subscribe to our mailing list
+      </Link>
+    </div>
+  </div>
+</section>

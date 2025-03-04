@@ -1,101 +1,97 @@
 ---
-import Container from '@components/container.astro';
-import Link from '@components/ui/link.astro';
-import Dropdown from './dropdown.astro';
-import { Astronav, MenuItems, MenuIcon } from 'astro-navbar';
+import Container from "@components/container.astro";
+import Link from "@components/ui/link.astro";
+import Dropdown from "./dropdown.astro";
+import { Astronav, MenuItems, MenuIcon, StickyHeader } from "astro-navbar";
 
 const menuitems = [
   {
-    title: 'Info',
-    path: '#',
-    children: [
-      { title: 'Action', path: '/' },
-      { title: 'Another action', path: '#' },
-      { title: 'Dropdown Submenu', path: '#' },
-      { title: '404 Page', path: '/404' },
-    ],
+    title: "Artists",
+    path: "/about",
+    children: null,
+    badge: null,
   },
   {
-    title: 'Pricing',
-    path: '/pricing',
+    title: "Info",
+    path: "/info",
+    children: null,
+    badge: null,
   },
   {
-    title: 'Artists',
-    path: '/about',
+    title: "Artists",
+    path: "/about",
+    children: null,
+    badge: null,
   },
   {
-    title: 'Blog',
-    path: '/blog',
-  },
-  {
-    title: 'Contact',
-    path: '/contact',
+    title: "Info",
+    path: "/info",
+    children: null,
+    badge: null,
   },
 ];
 ---
 
-<Container>
-  <header class='flex flex-col lg:flex-row justify-between items-center my-5'>
-    <Astronav>
-      <div class='flex w-full lg:w-auto items-center justify-between'>
-        <a
-          href='/'
-          class='text-lg'
-          >HCF2025 or Logo
-        </a>
-        <div class='block lg:hidden'>
-          <MenuIcon class='w-4 h-4 text-gray-800' />
+<StickyHeader
+  class="sticky top-0 border-b z-20 transition-all w-full"
+  scrollY={50}
+  defaultClass="py-5 border-transparent"
+  activeClass="py-2 bg-white/80 border-gray-200 backdrop-blur-lg"
+>
+  <Container>
+    <header class="flex flex-col lg:flex-row justify-between items-center my-5">
+      <Astronav>
+        <div class="flex w-full lg:w-auto items-center justify-between">
+          <a href="/" class="text-lg">HOPKINS CREEK </a>
+          <div class="block lg:hidden">
+            <MenuIcon class="w-4 h-4 text-site-headline" />
+          </div>
         </div>
-      </div>
-      <MenuItems class='hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0'>
-        <ul class='flex flex-col lg:flex-row lg:gap-3'>
-          {
-            menuitems.map((item, index) => (
-              <>
-                {item.children && (
-                  <Dropdown
-                    title={item.title}
-                    children={item.children}
-                    lastItem={index === menuitems.length - 1}
-                  />
-                )}
+        <!-- NAV MENU -->
+        <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+          <ul class="flex flex-col lg:flex-row lg:gap-3">
+            {
+              menuitems.map((item, index) => (
+                <>
+                  {item.children && (
+                    <Dropdown
+                      title={item.title}
+                      children={item.children}
+                      lastItem={index === menuitems.length - 1}
+                    />
+                  )}
 
-                {!item.children && (
-                  <li>
-                    <a
-                      href={item.path}
-                      class='flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900'>
-                      <span> {item.title}</span>
-                      {item.badge && (
-                        <span class='ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full'>
-                          New
-                        </span>
-                      )}
-                    </a>
-                  </li>
-                )}
-              </>
-            ))
-          }
-        </ul>
-        <div class='lg:hidden flex items-center mt-3 gap-4'>
-          <Link
-            href='#'
-            size='md'
-            block
-            >Tickets</Link
-          >
+                  {!item.children && (
+                    <li>
+                      <a
+                        href={item.path}
+                        class="flex lg:px-3 py-2 items-center"
+                      >
+                        <span> {item.title}</span>
+                        {item.badge && (
+                          <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
+                            New
+                          </span>
+                        )}
+                      </a>
+                    </li>
+                  )}
+                </>
+              ))
+            }
+          </ul>
+          <!-- END NAV MENU -->
+          <div class="lg:hidden flex items-center mt-3 gap-4">
+            <Link href="#" size="md">Tickets</Link>
+          </div>
+        </MenuItems>
+      </Astronav>
+
+      <div>
+        <div class="hidden lg:flex items-center gap-4">
+          <Link href="#" size="md">Tickets</Link>
         </div>
-      </MenuItems>
-    </Astronav>
-    <div>
-      <div class='hidden lg:flex items-center gap-4'>
-        <Link
-          href='#'
-          size='md'
-          >Tickets</Link
-        >
       </div>
-    </div>
-  </header>
-</Container>
+    </header>
+  </Container>
+</StickyHeader>
