@@ -6,10 +6,9 @@ module.exports = {
       extend: {
         colors: {
           site: {
-            background: '#fef6e4',
-            headline: '#001858',
-            paragraph: '#172c66',
-            accent: '#f582ae',
+            background: '#F0ECE4',
+            headline: '#42403A',
+
           }
         },
       },

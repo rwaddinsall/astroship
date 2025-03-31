@@ -4,72 +4,67 @@ import { fetchFAQ } from '../lib/fetchFAQ';
 const faq = await fetchFAQ();
 ---
 
-<!-- <Accordion>
-  {
-    faq.map((item, index) => (
-      <AccordionItem
-        key={index}
-        title={item.title}>
-        <div set:html={item.answer} />
-      </AccordionItem>
-    ))
+<style is:global>
+  /* These styles can reach inside the Accordion component */
+  .accordion {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 2rem; 
+    width: 100%;
   }
-</Accordion> -->
+
+.accordion__item {
+/* clean rounded border */
+border-radius: 0.5rem;
+border: 1px solid #e2e8f0;
+/* padding */
+padding: 1rem;
+/* margin */
+margin: 0;
+/* background color */
+background-color: #f7fafc;
+}
+</style>
+
+
+
+<!-- <Accordion>
+  {faq.map((item) => (
+    <AccordionItem
+      
+      key={item.id}
+      title={item.question}
+    >
+      <div set:html={item.answer} />
+    </AccordionItem> -->
+<!-- // Provide placeholder content for the accordion items
+// This will be replaced with the actual FAQ data -->
+
 <Accordion>
-  <AccordionItem title='What is Hopkins Creek Festival?'>
+  <AccordionItem title="What is the festival about?">
     <p>
-      Hopkins Creek Festival is a boutique music and arts festival held in the
-      beautiful wilderness of Victoria, Australia. The festival is a celebration
-      of music, art, and nature, and is a place where people can come together
-      to enjoy good music, good food, and good company.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, inventore delectus earum odio fuga omnis harum ab reprehenderit voluptatem impedit expedita incidunt commodi, laudantium dolore!
     </p>
   </AccordionItem>
-  <AccordionItem title='When is Hopkins Creek Festival?'>
+  <AccordionItem title="How do I get there?">
     <p>
-      Hopkins Creek Festival is held annually in November. The festival runs for
-      three days, from Friday to Sunday, and features a diverse lineup of local
-      and international artists across multiple stages.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, inventore delectus earum odio
+      fuga omnis harum ab reprehenderit voluptatem impedit expedita incidunt commodi, laudantium dolore!
     </p>
   </AccordionItem>
-  <AccordionItem title='How do I get to Hopkins Creek Festival?'>
+  <AccordionItem title="What should I bring?">
     <p>
-      Hopkins Creek Festival is located in the beautiful wilderness of Victoria,
-      Australia. The festival site is easily accessible by car, and there are
-      also shuttle buses available from Melbourne and other major cities. For
-      more information on how to get to the festival, please visit the <a
-        href='/info'>Info</a
-      > page.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, inventore delectus earum odio
+      fuga omnis harum ab reprehenderit voluptatem impedit expedita incidunt commodi, laudantium dolore!
     </p>
   </AccordionItem>
-  <AccordionItem title='What should I bring to Hopkins Creek Festival?'>
+  <AccordionItem title="Can I bring my pet?">
     <p>
-      Hopkins Creek Festival is held in the great outdoors, so it's important to
-      come prepared. Some things you might want to bring include:
-      <ul>
-        <li>Warm clothing</li>
-        <li>Sunscreen</li>
-        <li>Insect repellent</li>
-        <li>A hat</li>
-        <li>A reusable water bottle</li>
-        <li>Camping gear</li>
-        <li>Good vibes</li>
-      </ul>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, inventore delectus earum odio
+      fuga omnis harum ab reprehenderit voluptatem impedit expedita incidunt commodi, laudantium dolore!
     </p>
   </AccordionItem>
-  <AccordionItem
-    title='Can I bring my own food and drinks to Hopkins Creek Festival?'>
-    <p>
-      Hopkins Creek Festival has a wide range of food and drink options
-      available for purchase, so there's no need to bring your own. However, if
-      you have specific dietary requirements or preferences, you are welcome to
-      bring your own food and drink to the festival. Please note that glass
-      bottles are not allowed on site.
-    </p>
-  </AccordionItem>
-  <AccordionItem title='Is Hopkins Creek Festival family-friendly?'>
-    <p>
-      Hopkins Creek Festival is a family-friendly event, and children are
-      welcome to attend. There are a
-    </p></AccordionItem
-  ></Accordion
->
+</Accordion>
+  ))}
+</Accordion>
+

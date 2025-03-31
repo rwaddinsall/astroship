@@ -4,10 +4,11 @@ import { renderOptions } from './renderOptions';
 import type { EntryFieldTypes } from 'contentful';
 
 interface FAQ {
-  contentTypeId: 'FAQ';
+  contentTypeId: 'faq';
   fields: {
-    titlen: EntryFieldTypes.RichText;
+    title: EntryFieldTypes.Symbol; // Changed from question to title and type to Symbol
     answer: EntryFieldTypes.RichText;
+    category?: EntryFieldTypes.EntryLink<{ fields: { name: string }, contentTypeId: string }>;
   };
 }
 
@@ -17,7 +18,9 @@ export const fetchFAQ = async () => {
   });
 
   return entries.items.map((item) => ({
-    question: documentToHtmlString(item.fields.title, renderOptions),
-    answer: documentToHtmlString(item.fields.answer),
+    // Use title directly as it's already a string, not RichText
+    question: item.fields.title,
+    // Convert answer from RichText to HTML string
+    answer: documentToHtmlString(item.fields.answer, renderOptions),
   }));
 };

@@ -1,0 +1,91 @@
+---
+// @ts-ignore
+import { Accordion, AccordionItem } from 'accessible-astro-components';
+import { contentfulClient } from '../lib/contentful';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import type { EntryFieldTypes } from 'contentful';
+
+const features = [
+  { title: 'Ayebatonye' },
+  { title: 'Barbara Boeing (BRA)' },
+  { title: 'Barney In The Tunnel' },
+  { title: 'Bumpy' },
+  { title: 'Claps X Middle Name Dance Band' },
+  { title: 'Dita (IDN)' },
+  { title: 'DJ Chrysalis' },
+  { title: 'DJ Shio' },
+  { title: 'Dreems' },
+  { title: 'Hannah D' },
+  { title: 'Idjut Boys' },
+  { title: 'Izy' },
+  { title: 'DJ JNETT' },
+  { title: 'John Gomez & Nick The Record (UK)' },
+  { title: 'Lord Echo (NZ)' },
+  { title: 'Mama Snake (DEN)' },
+  { title: 'Mitsuki (JAP)' },
+  { title: 'Montana' },
+  { title: 'Mount Liberation Unlimited (SWE)' },
+  { title: 'Nice Girl (NZ)' },
+  { title: 'Project 95' },
+  { title: 'Setwun' },
+];
+---
+
+<div class='flex flex-col items-center mt-16 md:mt-0'>
+  <h2 class='text-4xl lg:text-5xl font-bold lg:tracking-tight'>
+    Who's Playing
+  </h2>
+  <p class='text-lg mt-4 mb-4 text-slate-600 text-center'>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi in laborum.
+  </p>
+</div>
+
+<!-- <div class='flex flex-col lg:flex-row lg:flex-wrap justify-center gap-4'>
+  {
+    features.map((item) => (
+      <div class='flex items-center'>
+        <h3 class='font-semibold text-4xl'>{item.title}</h3>{' '}
+        {/* <p class='text-slate-500 mt-2 leading-relaxed'>{item.description}</p> */}
+      </div>
+    ))
+  }
+</div> -->
+
+<Accordion class='accordion-grid'>
+  {
+    features.map((item, index) => (
+      <AccordionItem
+        key={index}
+        title={item.title}>
+        <p>More information about {item.title}.</p>
+      </AccordionItem>
+    ))
+  }
+</Accordion>
+
+<style>
+  <style lang='scss' is:global > .accordion-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .accordion__item {
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #fff;
+  }
+
+  .accordion__item[open] {
+    background-color: #f9f9f9;
+  }
+</style>
