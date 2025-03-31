@@ -1,16 +1,34 @@
 ---
 import Container from '@components/container.astro';
-import Cta from '@components/cta.astro';
+
 import Artists from '@components/artists.astro';
 import Hero from '@components/hero.astro';
-
 import Layout from '@layouts/Layout.astro';
+import PreLaunchLayout from '@layouts/PreLaunchLayout.astro';
+
+import Navbar from '@components/navbar/navbar.astro';
+import Link from '@components/ui/link.astro';
+
+
+
+
 ---
 
-<Layout title=''>
+<PreLaunchLayout title='Hopkins Creek 2025'>
   <Container>
     <Hero />
-    <Artists />
-    <Cta />
   </Container>
-</Layout>
+</PreLaunchLayout>
+
+
+
+
+<!-- MAIN FULL SITE -->
+
+<!-- <Layout title='Hopkins Creek 2025'>
+  <Container>
+<Hero />
+<Artists />
+   
+  </Container>
+</Layout> -->

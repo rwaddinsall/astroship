@@ -1,0 +1,75 @@
+---
+import Faq from '@components/faq.astro';
+import Layout from '../layouts/Layout.astro';
+import Container from '@components/container.astro';
+import SectionHead from '@components/SectionHead.astro';
+import {
+  Tabs,
+  TabsList,
+  TabsPanel,
+  TabsTab,
+} from 'accessible-astro-components';
+---
+
+<Layout title='Information'>
+  <Container>
+    <SectionHead>
+      <Fragment slot='title'>Information</Fragment>
+      <Fragment slot='desc'
+        >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia,
+        vitae!
+      </Fragment>
+    </SectionHead>
+
+    <Tabs>
+      <TabsList>
+        <TabsTab
+          id='tab1'
+          controls='panel1'>
+          FAQ</TabsTab
+        >
+
+        <TabsTab
+          id='tab2'
+          controls='panel2'
+          >Tickets</TabsTab
+        >
+        <TabsTab
+          id='tab3'
+          controls='panel3'
+          >Sustainability</TabsTab
+        >
+        <TabsTab
+          id='tab4'
+          controls='panel4'
+          >Some category</TabsTab
+        >
+      </TabsList>
+
+      <TabsPanel
+        id='panel1'
+        labelledby='tab1'>
+        <Faq /></TabsPanel
+      >
+
+      <TabsPanel
+        id='panel2'
+        labelledby='tab2'>
+        <h2>Panel 2</h2>
+        <p>Content for second panel</p>
+      </TabsPanel>
+      <TabsPanel
+        id='panel3'
+        labelledby='tab3'>
+        <h2>Panel 3</h2>
+        <p>Content for third panel</p>
+      </TabsPanel>
+      <TabsPanel
+        id='panel4'
+        labelledby='tab3'>
+        <h2>Panel 4</h2>
+        <p>Content for fourth panel</p>
+      </TabsPanel>
+    </Tabs>
+  </Container>
+</Layout>

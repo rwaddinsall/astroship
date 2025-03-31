@@ -1,0 +1,70 @@
+---
+import { Accordion, AccordionItem } from 'accessible-astro-components';
+import { fetchFAQ } from '../lib/fetchFAQ';
+const faq = await fetchFAQ();
+---
+
+<style is:global>
+  /* These styles can reach inside the Accordion component */
+  .accordion {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 2rem; 
+    width: 100%;
+  }
+
+.accordion__item {
+/* clean rounded border */
+border-radius: 0.5rem;
+border: 1px solid #e2e8f0;
+/* padding */
+padding: 1rem;
+/* margin */
+margin: 0;
+/* background color */
+background-color: #f7fafc;
+}
+</style>
+
+
+
+<!-- <Accordion>
+  {faq.map((item) => (
+    <AccordionItem
+      
+      key={item.id}
+      title={item.question}
+    >
+      <div set:html={item.answer} />
+    </AccordionItem> -->
+<!-- // Provide placeholder content for the accordion items
+// This will be replaced with the actual FAQ data -->
+
+<Accordion>
+  <AccordionItem title="What is the festival about?">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, inventore delectus earum odio fuga omnis harum ab reprehenderit voluptatem impedit expedita incidunt commodi, laudantium dolore!
+    </p>
+  </AccordionItem>
+  <AccordionItem title="How do I get there?">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, inventore delectus earum odio
+      fuga omnis harum ab reprehenderit voluptatem impedit expedita incidunt commodi, laudantium dolore!
+    </p>
+  </AccordionItem>
+  <AccordionItem title="What should I bring?">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, inventore delectus earum odio
+      fuga omnis harum ab reprehenderit voluptatem impedit expedita incidunt commodi, laudantium dolore!
+    </p>
+  </AccordionItem>
+  <AccordionItem title="Can I bring my pet?">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, inventore delectus earum odio
+      fuga omnis harum ab reprehenderit voluptatem impedit expedita incidunt commodi, laudantium dolore!
+    </p>
+  </AccordionItem>
+</Accordion>
+  ))}
+</Accordion>
+

@@ -1,57 +1,57 @@
 ---
-import { Picture } from 'astro:assets';
-// import heroImage from 'assets/hero.png';
-import Link from '@components/ui/link.astro';
-import { Icon } from 'astro-icon/components';
+import Sectionhead from '@components/Sectionhead.astro'; // Custom sectionhead component
+import Link from "@components/ui/link.astro";   // Custom link component
+import { Image } from 'astro:assets';
+import heroImage from '@assets/hero-image.jpg';
 ---
 
-<main
-  class='flex flex-col justify-center items-center min-h-screen pt-16 pb-8 md:pt-12 md:pb-24'>
-  <!-- <div class='py-6 md:order-1 hidden md:block'>
-    <Picture
-      src={
-      alt='Astronaut in the air'
-      widths={[200, 400, 600]}
-      sizes='(max-width: 800px) 100vw, 620px'
-      loading='eager'
-      format='avif'
+<!-- Main hero section: flex column layout with full viewport height -->
+<section class="min-h-screen flex flex-col items-center pt-24 pb-20">
+  <!-- SectionHead component displaying the festival name and date -->
+  <Sectionhead>
+    <Fragment slot="title">Hopkins Creek</Fragment>
+    <Fragment slot="desc">November 20th - 23rd, 2025</Fragment>
+
+  </Sectionhead>
+
+
+<!-- <div class="flex w-full mt-20">
+
+    <p class="font-bold text-2xl text-center mx-auto max-w-3xl">
+     Lorem ipsum dolor sit amet consecis harum ab reprehenderit commodi, laudantium dolore!
+  </div>  -->
+
+  <!-- Image container with significant spacing from the description -->
+  <div class="py-6 w-full max-w-3xl mx-auto"> 
+    <Image
+      src={heroImage}
+      alt="Hopkins Creek Festival"
+      width={800}
+      height={500}
+      format="webp"
+      quality={80}
+      class="w-full h-auto rounded-lg"
     />
-  </div> -->
-  <div class='text-center'>
-    <h1
-      class='text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter'>
-      Hopkins Creek
-    </h1>
-    <p class='text-lg mt-4 text-slate-600 max-w-xl'>
-      November 25th – 28th, 2022 Celebrating Music & Mateship
-    </p>
-    <div
-      class='mt-6 flex flex-col sm:flex-row gap-3 justify-center items-center'>
-      <Link
-        href='#'
-        href='https://web3templates.com/templates/astroship-starter-website-template-for-astro'
-        target='_blank'
-        class='flex gap-1 items-center justify-center'
-        rel='noopener'>
-        <Icon
-          class='text-white w-5 h-5'
-          name='bx:bxs-cloud-download'
-        />
-        Ballot info
-      </Link>
-      <Link
-        size='lg'
-        style='outline'
-        rel='noopener'
-        href='https://github.com/surjithctly/astroship'
-        class='flex gap-1 items-center justify-center'
-        target='_blank'>
-        <Icon
-          class='text-black w-4 h-4'
-          name='bx:bxl-github'
-        />
-        Contact us
-      </Link>
-    </div>
   </div>
-</main>
+
+  
+  <!-- Subscribe link container pushed to bottom of viewport with auto margin -->
+  <div class="mt-auto w-full flex justify-center pb-20 pt-16">
+    <Link href="/subscribe" style="outline" class="w-64 text-center">
+      Subscribe to our mailing list
+    </Link>
+  </div>
+</section>
+
+
+<body class="bg-green-600 text-white">
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="text-center">
+            <img src="/mnt/data/_image.webp" alt="Festival Logo" class="w-64 mx-auto mb-6">
+            <h1 class="text-6xl font-bold uppercase">Dovember 2025</h1>
+            <p class="mt-4 text-xl">A sonic journey like no other.</p>
+            <a href="#lineup" class="mt-6 inline-block px-6 py-3 bg-black text-white font-semibold rounded-full shadow-lg">View Lineup</a>
+        </div>
+    </div>
+</body>
+</html>
